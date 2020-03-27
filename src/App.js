@@ -10,6 +10,7 @@ import ButtonNavigation from './common/Button';
 import SignUpScreen from './Components/SignUp';
 import EmployeeList from './Components/EmployeeList';
 import Pdf from './Components/Pdf';
+import SwiperScreen from './Components/Swiper';
 
 const AppSwitchNavigator = createStackNavigator({
   Welcome: WelcomeScreen,
@@ -34,6 +35,12 @@ const AppSwitchNavigator = createStackNavigator({
   },
   Submit: {
     screen: EmployeeList,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  Swiper: {
+    screen: SwiperScreen,
     navigationOptions: {
       header: null,
     },

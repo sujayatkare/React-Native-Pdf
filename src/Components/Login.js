@@ -11,7 +11,7 @@ import {
 import ButtonNavigation from '../common/Button';
 import Header from '../common/Header';
 
-const Login = ({navigation}) => {
+const LoginScreen = ({navigation}) => {
   return (
     <View>
       <Header title="Login" isHeader={true} navigation={navigation} />
@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 });
-export default Login;
+export default LoginScreen;

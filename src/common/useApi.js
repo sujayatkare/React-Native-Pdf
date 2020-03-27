@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, ActivityIndicator} from 'react-native';
+import {View, Text} from 'react-native';
 import axios from 'axios';
 
 import FlatListApi from './FlatListApi';
@@ -10,8 +10,7 @@ const ApiFetch = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async () => {
+  const fetchMyData = async () => {
     setIsLoading(true);
     try {
       const response = await axios(
@@ -22,7 +21,12 @@ const ApiFetch = () => {
     } catch (err) {
       setErrorMessage('Something went wrong');
     }
-  }, [setUserData]);
+  };
+
+  useEffect(() => {
+    fetchMyData();
+  }, []);
+
   console.log(userData);
 
   return isLoading ? (

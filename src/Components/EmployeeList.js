@@ -14,6 +14,7 @@ const EmployeeList = ({navigation, item}) => {
       <View style={{marginTop: 70}}>
         <FetchApi />
         <ButtonNavigation screenName="Pdf" navigation={navigation} />
+        <ButtonNavigation screenName="Swiper" navigation={navigation} />
       </View>
     </View>
   );
