@@ -11,42 +11,40 @@ const source = {
 
 const ReactBook = ({navigation}) => {
   const pdfRef = useRef(null);
-  const [lastPageSeen, setlastPageSeen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pdfLoaded, setPdfLoaded] = useState(false);
+  const [presentPage, setPresentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [pdfLoaded, setPdfLoaded] = useState(false);
 
-  const _onLoadComplete = numberOfPages => {
+  const onPdfLoaded = numberOfPages => {
     setPdfLoaded(true);
     setTotalPages(numberOfPages);
   };
 
-  const _onPageChanged = (currentPage, numberOfPages) => {
-    setCurrentPage(currentPage);
-    if (currentPage === numberOfPages) {
-      setlastPageSeen(true);
-    }
+  const onPdfPageChanged = (page, numberOfPages) => {
+    setPresentPage(page);
   };
 
-  const updatePageCount = (operation: 'increment' | 'decrement') => () => {
-    const updatePage =
-      operation === 'increment' ? currentPage + 1 : currentPage - 1;
-    pdfRef.current.setPage(updatePage);
+  const incrementPageCount = () => {
+    const update = presentPage + 1;
+    pdfRef.current.setPage(update);
+  };
+
+  const decrementPageCount = () => {
+    const update = presentPage - 1;
+    pdfRef.current.setPage(update);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={{justifyContent: 'flex-start', marginTop: 20}}>
-        {currentPage}
-      </Text>
+      <Text style={{marginTop: 20}}>{presentPage}</Text>
       <Pdf
         ref={pdfRef}
         source={source}
         horizontal={true}
         fitWidth={true}
         enablePaging={true}
-        onLoadComplete={_onLoadComplete}
-        onPageChanged={_onPageChanged}
+        onLoadComplete={onPdfLoaded}
+        onPageChanged={onPdfPageChanged}
         onError={error => {
           console.log(error);
         }}
@@ -56,16 +54,16 @@ const ReactBook = ({navigation}) => {
         style={styles.pdf}
       />
       {pdfLoaded && (
-        <View style={{flexDirection: 'row'}}>
+        <View>
           <Button
-            onPress={updatePageCount('decrement')}
-            disabled={currentPage === 1}
             title="Previous Page"
+            onPress={decrementPageCount}
+            disabled={presentPage === 1}
           />
           <Button
-            onPress={updatePageCount('increment')}
-            disabled={currentPage === totalPages}
             title="Next Page"
+            onPress={incrementPageCount}
+            disabled={presentPage === totalPages}
           />
         </View>
       )}

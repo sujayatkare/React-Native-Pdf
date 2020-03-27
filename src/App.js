@@ -17,7 +17,7 @@ const AppSwitchNavigator = createStackNavigator({
   Pdf: {
     screen: Pdf,
     navigationOptions: {
-      header:null,
+      header: null,
     },
   },
   Login: {
