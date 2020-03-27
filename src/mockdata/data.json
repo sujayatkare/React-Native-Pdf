@@ -1,0 +1,18 @@
+{
+  "info": [
+    {"name": "sujay", "age": 28, "email": "sujay@gmail.com", "address": "beed"},
+    {"name": "abdul", "age": 29, "email": "abdul@gmail.com", "address": "pune"},
+    {
+      "name": "pankaj",
+      "age": 30,
+      "email": "pankaj@gmail.com",
+      "address": "nagpur"
+    },
+    {
+      "name": "sagar",
+      "age": 31,
+      "email": "sagar@gmail.com",
+      "address": "sangli"
+    }
+  ]
+}
