@@ -11,6 +11,10 @@ import SignUpScreen from './Components/SignUp';
 import EmployeeList from './Components/EmployeeList';
 import Pdf from './Components/Pdf';
 import SwiperScreen from './Components/Swiper';
+import Picker from './Components/Picker';
+import ToastScreen from './Components/Toast';
+import RadioButtonScreen from './Components/RadioScreen';
+import CheckBoxScreen from './Components/CheckBoxScreen';
 
 const AppSwitchNavigator = createStackNavigator({
   Welcome: WelcomeScreen,
@@ -41,6 +45,30 @@ const AppSwitchNavigator = createStackNavigator({
   },
   Swiper: {
     screen: SwiperScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  Picker: {
+    screen: Picker,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  Toast: {
+    screen: ToastScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  Radio: {
+    screen: RadioButtonScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  CheckBox: {
+    screen: CheckBoxScreen,
     navigationOptions: {
       header: null,
     },

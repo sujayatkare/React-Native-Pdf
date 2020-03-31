@@ -26,3 +26,4 @@ const HeaderScreen = ({navigation, title, isHeader}) => {
 };
 
 export default HeaderScreen;
+
